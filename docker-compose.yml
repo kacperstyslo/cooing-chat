@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  cooing-chat:
+    build: .
+    hostname: cooing_chat
+    environment:
+      FLASK_APP: cooing_chat
+      AWS_DEFAULT_REGION: ${AWS_DEFAULT_REGION}
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+    ports:
+      - "5000:5000"
+    entrypoint:
+      - flask
+      - run
+      - --host=0.0.0.0
+

@@ -1,0 +1,19 @@
+language: python
+
+python:
+  - "3.8"
+
+services:
+  - docker
+
+before_script: pip install docker-compose
+
+script:
+  - docker-compose up --build -d
+
+notifications:
+  email:
+    on_error: never
+    on_failure: never
+    on_start: never
+    on_cancel: never

@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block content %}
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='styles/style.css') }}">
+    <div class="container-fluid h-100">
+        <div class="row justify-content-center align-items-center h-100">
+            <div class="col-12 col-sm-6 col-md-6 text-right">
+                <form method="get" action="/create-room">
+                    <button type="submit" class="btn-lg btn-dark w-25">Create
+                        room!
+                    </button>
+                </form>
+            </div>
+            <div class="col-12 col-sm-6 col-md-6 text-left">
+                <form method="get" action="/connect-to-room">
+                    <button type="submit" class="btn-lg btn-dark w-25">Connect to
+                        the room!
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+
+

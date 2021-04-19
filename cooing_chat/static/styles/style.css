@@ -1,0 +1,57 @@
+body, html {
+    height: 100%;
+    background-color: #232931;
+}
+
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+    background-color: #393e46;
+    color: #4AF626;
+}
+
+::placeholder {
+    color: #eeeeee;
+    opacity: 0.7;
+}
+
+input:hover::placeholder {
+    color: #eeeeee;
+    opacity: 1;
+}
+
+input:focus::placeholder {
+    color: #eeeeee;
+    opacity: 1;
+}
+
+.room_key_header {
+    color: #eeeeee;
+}
+
+.chat_container {
+    height: 100%;
+}
+
+.chat_container .chat_text_area {
+    height: 60%;
+    width: 95%;
+}
+
+.input_message_container {
+    width: 95%;
+    margin-left: 2.5%;
+    align-self: start;
+    height: 50px;
+}
+
+.input_message_container .input_message_field {
+    background-color: #393e46;
+    color: #4AF626;
+}
+
+.input_message_container .button_send_message {
+    margin-left: 1%;
+    width: 10%;
+}
+
+
+

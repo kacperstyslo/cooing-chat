@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block content %}
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='styles/style.css') }}">
+    <div class="container-fluid h-100">
+        <div class="row justify-content-center align-items-center h-100">
+            <div class="col col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert alert-danger alert-dismissible fade show"
+                                 role="alert">
+                                Sorry, but the key: <strong>{{ message }}</strong> is incorrect!
+                                <button type="button" class="close" data-dismiss="alert"
+                                        aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                <form method="POST" id="hidden_form">
+                    {{ form.hidden_tag() }}
+                    {{ form.user_nickname(class="form-control form-control-lg border-dark", type="text") }}<br>
+                    {{ form.room_key(class="form-control form-control-lg border-dark", type="text") }}<br>
+                    {{ form.connect_to_the_room_button(class="btn-dark btn-lg w-100") }}
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block content %}
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='styles/style.css') }}">
+    <script type="text/javascript" charset="utf-8"
+            src="{{ url_for('static', filename='js/chat_functions.js') }}"></script>
+    <div class="chat_container d-flex flex-column align-items-center">
+        <h1 class="p-1 room_key_header">Room: {{ room }}</h1>
+        <textarea class="form-control chat_text_area" id="chat"
+                  disabled></textarea><br>
+        <div class="row input_message_container">
+            <input class="col w-75 input_message_field" id="text"
+                   placeholder="Enter your message here">
+            <button class="btn btn-success button_send_message"
+                    onclick="send_message_button_click()">Send
+            </button>
+        </div>
+        <br>
+        <script>
+            function leave_room() {
+                socket.emit('left', {}, function () {
+                    socket.disconnect();
+                    window.location.href = "{{ url_for('.index') }}";
+                });
+            }
+        </script>
+        <a href="#" onclick="leave_room();">Leave this room</a>
+    </div>
+{% endblock %}

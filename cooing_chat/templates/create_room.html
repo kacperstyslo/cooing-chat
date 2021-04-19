@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+{% block content %}
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='styles/style.css') }}">
+    <script type="text/javascript"
+            src="{{ url_for('static', filename='js/show_key_and_form.js') }}"></script>
+    <div class="container-fluid h-100">
+        <div class="row justify-content-center align-items-center h-100">
+            <div class="col col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert alert-danger alert-dismissible fade show"
+                                 role="alert">
+                                Sorry, but the key: <strong>{{ message }}</strong> is incorrect!
+                                <button type="button" class="close" data-dismiss="alert"
+                                        aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                <button type="button" class="btn-dark btn-lg w-100"
+                        id="secret_room_key_button"
+                        onclick="show_secret_key_and_form()"
+                >Generate secret room key
+                </button>
+                <h4 class="text-center" id="room_key_text"
+                    style="display: none; color:white;">Room key</h4>
+                <h5 class="text-center pt-2" id="generated_secret_key"
+                    style="display: none; color:#4AF626;"> {{ generated_secret_key }} </h5>
+                <form method="POST" id="hidden_form"
+                      style="display: none; margin-top: 15%;">
+                    {{ form.hidden_tag() }}
+                    {{ form.user_nickname(class="form-control") }}<br>
+                    {{ form.room_key(class="form-control") }}<br>
+                    {{ form.create_room_button(class="btn-dark btn-lg w-100") }}
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
