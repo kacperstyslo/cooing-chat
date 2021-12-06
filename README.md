@@ -1,8 +1,6 @@
 # Cooing Chat
 [![Build Status](https://app.travis-ci.com/kacperstyslo/cooing-chat.svg?branch=master)](https://app.travis-ci.com/kacperstyslo/cooing-chat)
 
-## See running Cooing Chat <a href="http://cooing-chat-lb-330897751.us-east-1.elb.amazonaws.com" target="blank">here!</a>
-
 # Table of contents
 * [General info](#general-info)
 * [Technologies](#technologies)
